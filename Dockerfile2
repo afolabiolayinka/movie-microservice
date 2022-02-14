@@ -1,0 +1,11 @@
+FROM node:14.15-alpine
+
+WORKDIR /movie-api
+
+COPY ./package.json ./package-lock.json ./
+RUN npm install
+
+RUN mkdir ./src
+COPY ./src/movie-service ./src
+
+CMD ["node", "./src/app.js"]

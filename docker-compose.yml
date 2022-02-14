@@ -1,0 +1,26 @@
+version: "3.2"
+services:
+  auth-api:
+    command: node src/auth-service/server.js
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - published: ${APP_PORT:-3000}
+        target: 3000
+    volumes:
+      - .:/auth-api/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+  movie-api:
+    command: node src/movie-service/app.js
+    build:
+      context: .
+      dockerfile: Dockerfile2
+    ports:
+      - published: ${APP_PORT:-8080}
+        target: 8080
+    volumes:
+      - .:/movie-api/
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
