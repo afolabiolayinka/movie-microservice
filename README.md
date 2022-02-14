@@ -25,16 +25,19 @@ username: 'premium-jim'
 password: 'GBLtTyq3E_UNjFnpo9m6'
 ```
 # Usage
-Run with:
-```
-sudo JWT_SECRET={KEY} docker-compose up -d
-```
+
 ## Notes:
 1. Please import the "movie_microservice.postman_collection.json" into your Postman application.
 2. First you need to authenticate user buy running the auth request before creating a movie or selecting the ones in the database.
-3.The authentication service runs on port 3000 while the movie service runs on port 8080
+3. The authentication service runs on port 3000 while the movie service runs on port 8080
+4. The KEY used is the one you get from https://omdbapi.com. It serves as the JWT Secret key too
+5. In-memory is used for the sample. That means if the application stops the database is erased too.
 
-Stop services with
+## Run services with:
+```
+sudo JWT_SECRET={KEY} docker-compose up -d
+```
+## Stop services with
 ```
 sudo docker-compose down
 ```
