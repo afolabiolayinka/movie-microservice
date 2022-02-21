@@ -41,8 +41,6 @@ sudo JWT_SECRET={KEY} docker-compose up -d
 ```
 sudo docker-compose down
 ```
-
-```
 ## Run test with:
 ```
 sudo JWT_SECRET={KEY} npm test
