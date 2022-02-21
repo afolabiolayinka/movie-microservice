@@ -84,7 +84,7 @@ function do_save(request, response) {
             createdBy = request.user.userId;
 
             createMovie(title, released, genre, director, createdBy, (queryResult) => {
-                return response.status(200).json({ staus: "OK", message: queryResult });
+                return response.status(200).json({ status: "OK", message: queryResult });
             });
         });
     }).on('error', err => {
